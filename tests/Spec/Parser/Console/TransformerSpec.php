@@ -9,5 +9,11 @@ class TransformerSpec extends ObjectBehavior {
         $this->shouldHaveType('Parser\Console\Transformer');
     }
 
+    function it_transforms_a_command()
+    {
+        $this->transform('foo --bar "baz" --wow=such')
+             ->shouldBe('foo --bar="baz" --wow=such');
+    }
+
 }
 
