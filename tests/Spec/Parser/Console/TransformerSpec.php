@@ -11,8 +11,8 @@ class TransformerSpec extends ObjectBehavior {
 
     function it_transforms_a_command()
     {
-        $this->transform('foo --bar "baz" --wow=such')
-             ->shouldBe('foo --bar="baz" --wow=such');
+        $this->transform('foo --bar "baz" --wow=such -f "amaze"')
+             ->shouldBe('foo --bar="baz" --wow=such -f="amaze"');
     }
 
 }
