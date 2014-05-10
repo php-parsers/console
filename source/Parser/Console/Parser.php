@@ -10,9 +10,11 @@ class Parser {
      */
     public function parse($command)
     {
+        $chunks = explode(' ', $command);
+
         return [
-            'name' => $command ?: null,
-            'arguments' => [],
+            'name' => array_shift($chunks) ?: null,
+            'arguments' => $chunks,
             'options' => []
         ];
     }
