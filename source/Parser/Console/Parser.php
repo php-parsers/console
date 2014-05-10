@@ -46,19 +46,15 @@ class Parser {
                 $qoute = ! $qoute;
             }
 
-            if ($quote)
+            if ($quote or $character != ' ')
             {
                 $buffer .= $character;
             }
-            elseif ($character == ' ')
+            else
             {
                 $this->chunks[] = $buffer.$character;
 
                 $buffer = '';
-            }
-            else
-            {
-                $buffer .= $character;
             }
         }
     }
