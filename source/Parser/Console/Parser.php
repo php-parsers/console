@@ -43,19 +43,24 @@ class Parser {
         {
             if (in_array($character, ['\'', "\""]))
             {
-                $qoute = ! $qoute;
+                $quote = ! $quote;
             }
 
             if ($quote or $character != ' ')
             {
                 $buffer .= $character;
             }
-            else
+            elseif ($buffer !== '')
             {
-                $this->chunks[] = $buffer.$character;
+                $this->chunks[] = $buffer;
 
                 $buffer = '';
             }
+        }
+
+        if ($buffer !== '')
+        {
+            $this->chunks[] = $buffer;
         }
     }
 
