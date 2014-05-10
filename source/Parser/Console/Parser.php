@@ -21,7 +21,7 @@ class Parser {
 
         return [
             'name'      => $this->extractName(),
-            'arguments' => $this->chunks,
+            'arguments' => $this->extractArguments(),
             'options'   => []
         ];
     }
@@ -45,6 +45,27 @@ class Parser {
     protected function extractName()
     {
         return array_shift($this->chunks);
+    }
+
+    /**
+     * Extract a list of arguments from the chunks list.
+     *
+     * @return array
+     */
+    protected function extractArguments()
+    {
+        return array_map([$this, 'cleanChunk'], $this->chunks);
+    }
+
+    /**
+     * Clean a chunk.
+     *
+     * @param string $chunk
+     * @return string
+     */
+    protected function cleanChunk($chunk)
+    {
+        return str_replace(['\'', "\""], '', $chunk);
     }
 
 }
