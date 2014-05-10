@@ -22,7 +22,7 @@ class Parser {
         return [
             'name'      => $this->extractName(),
             'arguments' => $this->extractArguments(),
-            'options'   => []
+            'options'   => $this->extractOptions()
         ];
     }
 
@@ -87,6 +87,16 @@ class Parser {
     }
 
     /**
+     * Extract a list of options from the chunks list.
+     *
+     * @return array
+     */
+    protected function extractOptions()
+    {
+
+    }
+
+    /**
      * Clean a chunk.
      *
      * @param string $chunk
@@ -105,7 +115,18 @@ class Parser {
      */
     protected function isOption($chunk)
     {
-        return strpos($chunk, '-') === false;
+        return strpos($chunk, '-') !== false;
+    }
+
+    /**
+     * Determine whether the given chunk is a valid argument.
+     *
+     * @param string $chunk
+     * @return boolean
+     */
+    protected function isArgument($chunk)
+    {
+        return ! $this->isOption($chunk);
     }
 
 }
