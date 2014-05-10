@@ -16,6 +16,12 @@ class ParserSpec extends ObjectBehavior {
             'arguments' => [],
             'options' => []
         ]);
+
+        $this->parse('foo')->shouldBe([
+            'name' => 'foo',
+            'arguments' => [],
+            'options' => []
+        ]);
     }
 
 }

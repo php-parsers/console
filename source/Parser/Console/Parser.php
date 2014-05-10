@@ -11,7 +11,7 @@ class Parser {
     public function parse($command)
     {
         return [
-            'name' => null,
+            'name' => $command ?: null,
             'arguments' => [],
             'options' => []
         ];
