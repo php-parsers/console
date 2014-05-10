@@ -11,7 +11,11 @@ class ParserSpec extends ObjectBehavior {
 
     function it_parses_a_console_command_into_an_array()
     {
-
+        $this->parse('')->shouldBe([
+            'name' => null,
+            'arguments' => [],
+            'options' => []
+        ]);
     }
 
 }

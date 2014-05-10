@@ -10,7 +10,11 @@ class Parser {
      */
     public function parse($command)
     {
-
+        return [
+            'name' => null,
+            'arguments' => [],
+            'options' => []
+        ];
     }
 
 }
