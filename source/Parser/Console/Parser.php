@@ -81,7 +81,9 @@ class Parser {
      */
     protected function extractArguments()
     {
-        return array_map([$this, 'cleanChunk'], $this->chunks);
+        $chunks = array_filter($this->chunks, [$this, 'isOption']);
+
+        return array_map([$this, 'cleanChunk'], $chunks);
     }
 
     /**
@@ -93,6 +95,17 @@ class Parser {
     protected function cleanChunk($chunk)
     {
         return str_replace(['\'', "\""], '', $chunk);
+    }
+
+    /**
+     * Determine whether the given chunk is a valid option.
+     *
+     * @param string $chunk
+     * @return boolean
+     */
+    protected function isOption($chunk)
+    {
+        return strpos($chunk, '-') === false;
     }
 
 }
