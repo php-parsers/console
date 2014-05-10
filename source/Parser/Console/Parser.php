@@ -10,6 +10,24 @@ class Parser {
     protected $chunks = [];
 
     /**
+     * The Transformer instance.
+     *
+     * @var Transformer
+     */
+    protected $transformer;
+
+    /**
+     * The constructor.
+     *
+     * @param Transformer|null $transformer
+     * @return Parser
+     */
+    public function __construct(Transformer $transformer = null)
+    {
+        $this->transformer = $transformer ?: new Transformer;
+    }
+
+    /**
      * Parse a console command into an array.
      *
      * @param string $command
