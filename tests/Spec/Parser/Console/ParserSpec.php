@@ -9,5 +9,10 @@ class ParserSpec extends ObjectBehavior {
         $this->shouldHaveType('Parser\Console\Parser');
     }
 
+    function it_parses_a_console_command_into_an_array()
+    {
+
+    }
+
 }
 
