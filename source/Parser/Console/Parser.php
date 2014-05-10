@@ -81,7 +81,7 @@ class Parser {
      */
     protected function extractArguments()
     {
-        $chunks = array_filter($this->chunks, [$this, 'isOption']);
+        $chunks = array_filter($this->chunks, [$this, 'isArgument']);
 
         return array_map([$this, 'cleanChunk'], $chunks);
     }
@@ -93,7 +93,9 @@ class Parser {
      */
     protected function extractOptions()
     {
+        $chunks = array_filter($this->chunks, [$this, 'isOption']);
 
+        return $chunks;
     }
 
     /**
