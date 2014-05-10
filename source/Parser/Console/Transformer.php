@@ -10,7 +10,7 @@ class Transformer {
      */
     public function transform($command)
     {
-
+        return preg_replace('/\-([\-a-z]+)\s([^\s]+)/i', '-$1=$2', $command);
     }
 
 }
