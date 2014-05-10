@@ -31,6 +31,11 @@ class ParserSpec extends ObjectBehavior {
             'name'      => 'foo',
             'arguments' => ['bar', 'baz', 'wow']
         ]));
+
+        $this->parse('foo "bar baz" \'wow such\'')->shouldBe($this->merge([
+            'name'      => 'foo',
+            'arguments' => ['bar baz', 'wow such']
+        ]));
     }
 
     protected function merge(array $data = [])
