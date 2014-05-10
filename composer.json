@@ -1,9 +1,6 @@
 {
     "name": "php-parsers/console",
     "description": "Parse console commands with ease.",
-    "require-dev": {
-        "phpspec/phpspec": "~2"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +8,13 @@
             "email": "public.ilya.s@gmail.com"
         }
     ],
-    "require": {
-
+    "require-dev": {
+        "phpspec/phpspec": "~2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Parser\\": "source/Parser/"            
+        }
     }
 }
+

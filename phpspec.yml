@@ -1,0 +1,9 @@
+formatter.name: pretty
+
+suites:
+    parser_suite:
+        namespace: Parser
+        src_path: source
+        spec_path: tests
+        spec_prefix: Spec
+
