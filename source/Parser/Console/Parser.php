@@ -34,7 +34,33 @@ class Parser {
      */
     protected function splitIntoChunks($string)
     {
-        $this->chunks = array_filter(explode(' ', $string));
+        $this->chunks = [];
+
+        $quote  = false;
+        $buffer = '';
+
+        foreach (str_split($string) as $character)
+        {
+            if (in_array($character, ['\'', "\""]))
+            {
+                $qoute = ! $qoute;
+            }
+
+            if ($quote)
+            {
+                $buffer .= $character;
+            }
+            elseif ($character == ' ')
+            {
+                $this->chunks[] = $buffer.$character;
+
+                $buffer = '';
+            }
+            else
+            {
+                $buffer .= $character;
+            }
+        }
     }
 
     /**
