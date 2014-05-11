@@ -35,6 +35,8 @@ class Parser {
      */
     public function parse($command)
     {
+        $command = $this->transformer->transform($command);
+
         $this->splitIntoChunks($command);
 
         return [
@@ -150,4 +152,3 @@ class Parser {
     }
 
 }
-
