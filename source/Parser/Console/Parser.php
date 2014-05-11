@@ -113,9 +113,44 @@ class Parser {
      */
     protected function extractOptions()
     {
-        $chunks = array_filter($this->chunks, [$this, 'isOption']);
+        $chunks  = array_filter($this->chunks, [$this, 'isOption']);
+        $options = [];
 
-        return $chunks;
+        foreach ($chunks as $chunk)
+        {
+            list($name, $value) = $this->prepareOption($chunk);
+
+            $options[$name] = $value;
+        }
+
+        return $options;
+    }
+
+    /**
+     * Prepare an option.
+     *
+     * @param string $option
+     * @return array
+     */
+    protected function prepareOption($option)
+    {
+        $value  = null;
+        $volume = 1;
+
+        $chunks = explode('=', $option);
+
+        if (count($chunks) == 2)
+        {
+            $value = $chunks[1];
+        }
+
+        return [
+            str_replace('-', '', $chunks[0]),
+            [
+                'value'  => $this->cleanChunk($value),
+                'volume' => 1
+            ]
+        ];
     }
 
     /**
