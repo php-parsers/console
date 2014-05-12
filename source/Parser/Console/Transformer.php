@@ -10,9 +10,20 @@ class Transformer {
      */
     public function transform($command)
     {
-        $command = $this->replaceWhiteSpaces($command);
+        $command = $this->openCollapsedOptions($command);
 
-        return $command;
+        return $this->replaceWhiteSpaces($command);
+    }
+
+    /**
+     * Convert collapsed options to normal ones.
+     *
+     * @param string $string
+     * @return string
+     */
+    protected function openCollapsedOptions($string)
+    {
+
     }
 
     /**
@@ -33,7 +44,6 @@ class Transformer {
             {
                 return "$key $value";
             }
-
 
             return "-$key=$value";
         };
