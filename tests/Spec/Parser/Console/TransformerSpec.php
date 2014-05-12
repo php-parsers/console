@@ -16,6 +16,9 @@ class TransformerSpec extends ObjectBehavior {
 
         $this->transform('foo -vv -abc')
              ->shouldBe('foo -v -v -a -b -c');
+
+        $this->transform('foo -abc10')
+             ->shouldBe('foo -a -b -c=10');
     }
 
 }
