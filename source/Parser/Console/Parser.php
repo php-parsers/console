@@ -144,10 +144,11 @@ class Parser {
             $value = $chunks[1];
         }
 
+        $name = str_replace('-', '', $chunks[0]);
+
         return [
-            str_replace('-', '', $chunks[0]),
-            [
-                'value'  => $this->cleanChunk($value),
+            $name, [
+                'value'  => ($value ? $this->cleanChunk($value) : null),
                 'volume' => 1
             ]
         ];
