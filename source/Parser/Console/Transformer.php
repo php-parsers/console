@@ -10,7 +10,20 @@ class Transformer {
      */
     public function transform($command)
     {
-        return preg_replace('/\-([\-a-z]+)\s([^\s]+)/i', '-$1=$2', $command);
+        $command = $this->replaceWhiteSpaces($command);
+
+        return $command;
+    }
+
+    /**
+     * Replace white space between a key-value pair with the equal sign.
+     *
+     * @param string $string
+     * @return string
+     */
+    protected function replaceWhiteSpaces($string)
+    {
+        return preg_replace('/\-([\-a-z]+)\s([^\s]+)/i', '-$1=$2', $string);
     }
 
 }
