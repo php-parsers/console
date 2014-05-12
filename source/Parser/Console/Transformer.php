@@ -33,8 +33,6 @@ class Transformer {
                 $result .= " -$option";
             }
 
-            var_dump($result);
-
             return $result;
         };
 
@@ -57,7 +55,7 @@ class Transformer {
 
             if (strpos($value, '-') === 0)
             {
-                return "$key $value";
+                return "-$key $value";
             }
 
             return "-$key=$value";
