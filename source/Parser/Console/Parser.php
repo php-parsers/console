@@ -35,9 +35,9 @@ class Parser {
      */
     public function parse($command)
     {
-        $command = $this->transformer->transform($command);
-
-        $this->splitIntoChunks($command);
+        $this->splitIntoChunks(
+            $this->transformer->transform($command)
+        );
 
         return [
             'name'      => $this->extractName(),

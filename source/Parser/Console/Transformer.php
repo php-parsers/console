@@ -10,9 +10,9 @@ class Transformer {
      */
     public function transform($command)
     {
-        $command = $this->openCollapsedOptions($command);
-
-        return $this->replaceWhiteSpaces($command);
+        return $this->replaceWhiteSpaces(
+            $this->openCollapsedOptions($command)
+        );
     }
 
     /**
