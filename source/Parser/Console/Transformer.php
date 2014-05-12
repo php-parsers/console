@@ -23,7 +23,24 @@ class Transformer {
      */
     protected function replaceWhiteSpaces($string)
     {
-        return preg_replace('/\-([\-a-z]+)\s([^\s]+)/i', '-$1=$2', $string);
+        $callback = function(array $matches)
+        {
+            array_shift($matches);
+
+            list($key, $value) = $matches;
+
+            if (strpos($value, '-') === 0)
+            {
+                return "$key $value";
+            }
+
+
+            return "-$key=$value";
+        };
+
+        return preg_replace_callback(
+            '/\-([\-a-z]+)\s([^\s]+)/i', $callback, $string
+        );
     }
 
 }
