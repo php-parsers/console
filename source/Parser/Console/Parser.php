@@ -173,7 +173,7 @@ class Parser {
      */
     protected function isOption($chunk)
     {
-        return strpos($chunk, '-') !== false;
+        return strpos($chunk, '-') === 0;
     }
 
     /**
