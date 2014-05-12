@@ -38,7 +38,7 @@ class Transformer {
 
         $string = preg_replace_callback('/\s\-([a-z]{2,})/i', $callback, $string);
 
-        return preg_replace('/\-([a-z]{1})([^\sa-z]+)/i', '-$1 $2', $string);
+        return preg_replace('/\-([a-z]{1})([^\sa-z]+)/i', '-$1=$2', $string);
     }
 
     /**

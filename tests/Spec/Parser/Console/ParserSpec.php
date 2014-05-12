@@ -67,7 +67,7 @@ class ParserSpec extends ObjectBehavior {
                     'volume' => 1
                 ],
                 'b'   => [
-                    'volume' => '10',
+                    'value'  => '10',
                     'volume' => 1
                 ]
             ]
