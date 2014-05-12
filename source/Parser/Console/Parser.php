@@ -120,6 +120,13 @@ class Parser {
         {
             list($name, $value) = $this->prepareOption($chunk);
 
+            if (isset ($options[$name]))
+            {
+                $options[$name]['volume'] += 1;
+
+                continue;
+            }
+
             $options[$name] = $value;
         }
 
