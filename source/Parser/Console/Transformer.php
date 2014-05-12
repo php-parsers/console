@@ -23,7 +23,22 @@ class Transformer {
      */
     protected function openCollapsedOptions($string)
     {
+        $callback = function(array $matches)
+        {
+            $collapsed = end($matches);
+            $result = '';
 
+            foreach (str_split($collapsed) as $option)
+            {
+                $result .= " -$option";
+            }
+
+            var_dump($result);
+
+            return $result;
+        };
+
+        return preg_replace_callback('/\s\-([a-z]{2,})/i', $callback, $string);
     }
 
     /**
