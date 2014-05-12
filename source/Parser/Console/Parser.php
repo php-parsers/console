@@ -3,7 +3,7 @@
 class Parser {
 
     /**
-     * Each command gets splitted into chunks.
+     * Each command gets split into chunks.
      *
      * @var array
      */
