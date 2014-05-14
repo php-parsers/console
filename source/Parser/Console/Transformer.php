@@ -57,14 +57,14 @@ class Transformer {
 
             if (strpos($value, '-') === 0)
             {
-                return "-$key $value";
+                return " -$key $value";
             }
 
-            return "-$key=$value";
+            return " -$key=$value";
         };
 
         return preg_replace_callback(
-            '/\-([\-a-z]+)\s([^\s]+)/i', $callback, $string
+            '/\s\-([\-a-z]+)\s([^\s]+)/i', $callback, $string
         );
     }
 
