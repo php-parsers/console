@@ -1,5 +1,7 @@
 <?php namespace Parser\Console;
 
+use Buffer\Buffer;
+
 class Parser {
 
     /**
@@ -54,34 +56,11 @@ class Parser {
      */
     protected function splitIntoChunks($string)
     {
-        $this->chunks = [];
+        $buffer = new Buffer($string);
+        $buffer->beAwareOf("\"");
+        $buffer->beAwareOf('\'');
 
-        $quote  = false;
-        $buffer = '';
-
-        foreach (str_split($string) as $character)
-        {
-            if (in_array($character, ['\'', "\""]))
-            {
-                $quote = ! $quote;
-            }
-
-            if ($quote or $character != ' ')
-            {
-                $buffer .= $character;
-            }
-            elseif ($buffer !== '')
-            {
-                $this->chunks[] = $buffer;
-
-                $buffer = '';
-            }
-        }
-
-        if ($buffer !== '')
-        {
-            $this->chunks[] = $buffer;
-        }
+        $this->chunks = array_filter($buffer->explode(' '));
     }
 
     /**
@@ -142,8 +121,6 @@ class Parser {
     protected function prepareOption($option)
     {
         $value  = null;
-        $volume = 1;
-
         $chunks = explode('=', $option);
 
         if (count($chunks) == 2)
@@ -195,4 +172,3 @@ class Parser {
     }
 
 }
-

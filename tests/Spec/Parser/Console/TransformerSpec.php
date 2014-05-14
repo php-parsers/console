@@ -22,4 +22,3 @@ class TransformerSpec extends ObjectBehavior {
     }
 
 }
-

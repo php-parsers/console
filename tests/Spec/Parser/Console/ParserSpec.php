@@ -87,13 +87,12 @@ class ParserSpec extends ObjectBehavior {
     protected function merge(array $data = [])
     {
         $structure = [
-            'name' => null,
+            'name'      => null,
             'arguments' => [],
-            'options' => []
+            'options'   => []
         ];
 
         return array_merge($structure, $data);
     }
 
 }
-
