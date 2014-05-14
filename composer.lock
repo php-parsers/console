@@ -3,9 +3,44 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a4301a1512a26bae32de859394bd9833",
+    "hash": "117dd85497b4f2e2f4aab65fd5990a37",
     "packages": [
-
+        {
+            "name": "ilya/buffer",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ilya-dev/buffer.git",
+                "reference": "f4b57dacf91fdc1644fac201f86810fbfa673632"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ilya-dev/buffer/zipball/f4b57dacf91fdc1644fac201f86810fbfa673632",
+                "reference": "f4b57dacf91fdc1644fac201f86810fbfa673632",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Buffer\\": "source/Buffer"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Context-aware implementation of explode().",
+            "keywords": [
+                "Context",
+                "aware",
+                "explode",
+                "implementation"
+            ],
+            "time": "2014-05-14 09:56:58"
+        }
     ],
     "packages-dev": [
         {
