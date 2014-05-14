@@ -12,6 +12,14 @@ Rapidly parse complex console commands into well-structured arrays.
 + cumulative options (`-kkk`, `-vv`)
 + collapsed short options (`-a -b -c` is equal to `-abc`)
 
+## Usage
+
+```php
+$parser = new Parser\Console\Parser;
+
+$parser->parse("your-string"); // => [...]
+```
+
 ## Output
 
 `your-command argument "another argument" -vvv -abc10 -f -n10 -g 5 --flag --val='g'`
